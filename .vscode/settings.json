@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "c:\\python\\python.exe",
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "cstdio": "cpp",
+        "iosfwd": "cpp"
+    }
+}
