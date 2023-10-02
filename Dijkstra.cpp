@@ -55,7 +55,7 @@ void Dijkstra(vector<Node>& V, vector<vector<int>>& E, int r){
 		// 每次取出一个结点
 		// 取出距源节点最短的结点, 对和该节点为起点的边进行松弛操作
 		// 循环V次, 循环内去除最小结点需要O(V), 对一个点的边进行放缩需要O(V), 总的时间复杂度O(V^2)
-		// 如果用邻接链表表示图, 并且用二叉堆来取出最小元素, 总的时间复杂度可以下降到O(V * log(V) + E)
+		// 如果用邻接链表表示图, 并且用二叉堆来取出最小元素, 总的时间复杂度可以下降到O(V * log(V) + E * log(V))
 		//cout << "Before updating(edge from " << min + 1 << "): " << endl;
 		// for(int i = 0; i < V.size(); ++i){
 		// 	cout << V[i].d << " ";

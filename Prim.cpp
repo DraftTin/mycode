@@ -20,6 +20,9 @@ public:
 };
 
 // 算法: 和Dijstra相似, 取出最近的点之后, 对这个点上的边上的另一端的点的距离进行调整
+// 如果使用最小优先队列实现，每次取出距离最小的点，之后调整最小堆V次，共V * log(V), 取出后调整其他节点的距离, 所有循环共访问2E次边, 
+// 每次调整后附带节点在最小堆中上浮的操作log(V)，所以共E * log(V)
+// 最后的时间复杂度O(Vlog(V) + Elog(V))
 void Prim(vector<Node>& graph_list){
 	// 每次循环取出一个距离prim树最近的点, O(V), 共进行V次, 每条边访问两次O(2E), 总的时间复杂度: O(V^2 + E) = O(V^2), 适合稠密图
 	vector<bool> visited(graph_list.size(), false);

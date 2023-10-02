@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int time;
+int totalTime = 0;
 //求图中的各强连通分量的算法
 /*
  * 思想是先用原图做一遍DFS,把所有点的完成时间计算出来,再把图反向
@@ -27,7 +27,7 @@ inline bool cmp(pair<int, int> &x, pair<int, int> &y) {return x.second > y.secon
 void DFS(vector<Node> &V, vector<vector<int>> &E)
 {
     // 图用邻接矩阵存储
-    time = 0;
+    totalTime = 0;
     for(int i = 0; i < V.size(); ++i)
     {
         if(V[i].color == 0)
@@ -40,9 +40,9 @@ void DFS(vector<Node> &V, vector<vector<int>> &E)
 void DFS_VISIT(vector<Node> &V, vector<vector<int>> &E, int k)
 {
     // 计算访问开始时间和访问结束时间
-    time = time + 1;
+    totalTime = totalTime + 1;
     V[k].color = 1;
-    V[k].d = time;
+    V[k].d = totalTime;
     // O(E)
     for(int i = 0; i < E.size(); ++i)
     {
@@ -52,8 +52,8 @@ void DFS_VISIT(vector<Node> &V, vector<vector<int>> &E, int k)
         }
     }
     // 结束访问
-    time = time + 1;
-    V[k].f = time;
+    totalTime = totalTime + 1;
+    V[k].f = totalTime;
 }
 
 
@@ -141,7 +141,7 @@ int main(void)
     GRAPH_PRINT(E);
     DFS(V, E);
 
-    time = 0;
+    totalTime = 0;
     cout << endl;
     vector<Node> Vp(V.size());
     TRANSPOSE(E);
