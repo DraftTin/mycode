@@ -5,6 +5,7 @@
         "ostream": "cpp",
         "*.tcc": "cpp",
         "cstdio": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "vector": "cpp"
     }
 }

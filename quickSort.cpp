@@ -55,17 +55,17 @@ void quickSort(vector<int>& arr, int begin, int end){
 	// cout << val << ": " << lcount << " " << rcount << endl;
 	arr[i] = val;
 	int n = i - 1;
-	int m = 0;
-	while(m < n && m < lcount){
+	int m = begin + lcount - 1;
+	while(m >= begin){
 		exchange(arr[n], arr[m]);
-		++m;
+		--m;
 		--n;
 	}
 	n = i + 1;
-	m = end;
-	while(n < m && end - m < rcount){
+	m = end - rcount + 1;
+	while(m <= end){
 		exchange(arr[n], arr[m]);
-		--m;
+		++m;
 		++n;
 	}
 	quickSort(arr, begin, i - 1 - lcount);
@@ -168,7 +168,7 @@ int main(){
 		if(tmp == -1) break;
 		arr.push_back(tmp);
 	}
-	quickSortWithRandomizedPartition(arr, 0, arr.size() - 1);
+	quickSort(arr, 0, arr.size() - 1);
 	cout << endl; 	
 	for(int tmp : arr){
 		cout << tmp << " ";
