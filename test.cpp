@@ -1,18 +1,20 @@
 #include <iostream>
-#include <string>
-
-using namespace std;
+#include <vector>
+#include <algorithm>
 
 int main() {
-    std::string str;
-int n = 10;
+    std::vector<int> nums = {1, 2, 2, 3, 3, 3, 4, 5, 5};
 
-str.reserve(n);  // 预留空间
+    // 使用 std::unique 删除相邻的重复元素
+    auto endIt = std::unique(nums.begin(), nums.end());
 
-for (int i = 0; i < n; ++i) {
-    str.push_back('!');  // 直接使用下标操作符修改每个位置的字符为 '!'
-}
-
-std::cout << str << std::endl;  // 输出：!!!!!!!!!!
-return 0;
+    // 输出去重后的容器内容
+    for (auto it = nums.begin(); it != endIt; ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+    for(auto i : nums) {
+        std::cout << i << std::endl;
+    }
+    return 0;
 }

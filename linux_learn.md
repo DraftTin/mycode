@@ -26,3 +26,9 @@ uniq is the tool that helps to detect the adjacent duplicate lines and also dele
 ```bash
 cat words.txt | tr -s ' ' '\n' | sort | uniq -c # calc word frequency
 ```
+
+## grep
+**grep** is used to search text and strings in a given file.
+```bash
+grep -E # --extended-regexp
+```

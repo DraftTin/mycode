@@ -6,7 +6,7 @@
 use '//' or '/* comment */' to comment
 
 ### Data Type
-int, float32, bool, array, string, slice, map, pointer, struct, interface, func, interface{}
+int, float32, bool, array, string, slice, map, pointer, struct, interface, func, interface{}, rune
 
 *note: interface{} represents any type*
 
@@ -66,4 +66,4 @@ describe([]int{1, 2, 3})
 2. if-else: 'else' must be placed next to the curly brackets.
 3. "[]int" represents **slice**, whose length is variable. "[...]int" or "[3]int" reprents **array**.
 4. Golang only has **for** used for Loop Statement: "for i := 0; i < n; i++", "for condition", or for i := **range** arr
-
+5. **"make"** can only be used to create "slice", "map", and "channel".
