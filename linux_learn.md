@@ -32,3 +32,13 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c # calc word frequency
 ```bash
 grep -E # --extended-regexp
 ```
+
+## awk
+
+Useful For: 
+(a) Transform data files 
+(b) Produce formatted reports 
+
+**Syntax:**
+
+awk options 'selection _criteria {action }' input-file > output-file
