@@ -126,7 +126,15 @@ Panic in golang is similar to the exception. Panic is meant to exit from a progr
 * Runtime error in the program
 * By calling the panic function explicitly: **panic(v interface{})**
 
+## GOROUTINE
+1. A goroutine runs on a logical CPU. **A logical CPU** = **a single CPU core** or **a single hardware threading.**![logical cpu](image-2.png)
 
+2. For each logical CPU, there is one local queue that contains many **Runnable** goroutines. ![local queue](image-3.png)
+3. The goroutines use **cooperative scheduling**, which means sometimes the running goroutine gives way to one of the waiting goroutines. For example, when it has to wait on a channel to deliver data. It's **efficient** because it happens local.
+4. **System Calls**: Sometimes, goroutines need to do system calls such as writing data to a file. This time, the thread typically is parked, and another thread will be created and takes over the local queue.![System Calls](image-5.png)
+5. **Work Stealing**: 
+* **Steal local queue:** When there is a empty local queue on a running thread, the scheduler will take half of the other queue over. ![Work Stealing](image-6.png)
+* **Global Queue:** If there is no local queue to steal, the scheduler will look at the global queue and assign them to threads.![Global Queue](image-7.png)
 
 ## Others
 1. 'var a int', or 'a := 2' to initialize variable
