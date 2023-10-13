@@ -136,6 +136,31 @@ Panic in golang is similar to the exception. Panic is meant to exit from a progr
 * **Steal local queue:** When there is a empty local queue on a running thread, the scheduler will take half of the other queue over. ![Work Stealing](image-6.png)
 * **Global Queue:** If there is no local queue to steal, the scheduler will look at the global queue and assign them to threads.![Global Queue](image-7.png)
 
+## Garbage Collection
+1. No Garbage Collection: like C/C++
+```c++
+free(ptr);
+delete ptr;
+```
+2. **Counting Method**: For each part of memory we allocate, set a counter recording how many places are using it. when the counter turns down to zero. The garbage collector will retrive the memory. <br>
+**Difficult to operate**, **time-consuming**, and **space-consuming, and has circular reference problem.**
+3. **Mark and Sweep(Go):** using tri-color marking algorithm to track object and their references.
+
+**Tri-color algo**: Initially, the **root set** contains the references of all objects that can be  accessed. And there are three sets: **White, Grey, Black**, and all references in the root set are in the White.
+* White set: objects need to be swept.
+* Grey set: Reachable objects but yet to be scanned for references to "white" objects.
+* Black set: Reachable objects that have no references to "white" objects.
+
+Then the alogorithm proceeds as following: 
+
+
+1. Pick an object from the grey set and move it to the black set.
+2. Move each white object it references to the grey set. This ensures that neither this object nor any object it references can be garbage-collected.
+3. Repeat the last two steps until the grey set is empty.
+![tri-color marking](Animation_of_tri-color_garbage_collection.gif)
+
+**Pros:** This algo can proceed with the program concurrently by maintaining those three sets.
+
 ## Others
 1. 'var a int', or 'a := 2' to initialize variable
 2. if-else: 'else' must be placed next to the curly brackets.
