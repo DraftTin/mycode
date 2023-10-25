@@ -167,5 +167,6 @@ Then the alogorithm proceeds as following:
 3. "[]int" represents **slice**, whose length is variable. "[...]int" or "[3]int" reprents **array**.
 4. Golang only has **for** used for Loop Statement: "for i := 0; i < n; i++", "for condition", or for i := **range** arr
 5. **"make"** can only be used to create "slice", "map", and "channel".
+6. The parameters are **passed by value** in Golang. Worth mentioning that *channel*, *map*, and *slice* are regareded as pointer, like in C/C++.
 
 

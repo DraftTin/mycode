@@ -88,3 +88,7 @@ function myFunction() {
 The **await** keyword can only be used inside an async function. 
 
 The **await** keyword makes the function pause the execution and wait for a resolved promise before it continues
+
+## Prototype Chain
+
+Prototypes are the mechanism by which JavaScript objects inherit features from one another. In this article, we explain what a prototype is, how prototype chain works, and how a prototype for an object can be set.

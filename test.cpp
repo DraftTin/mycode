@@ -2,19 +2,22 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
+void test(int* c) {
+    c = new int(3);
+    c[0] = 5;
+    c[1] = 5;
+    c[2] = 5;
+    cout << c[0] << endl;
+}
+
 int main() {
-    std::vector<int> nums = {1, 2, 2, 3, 3, 3, 4, 5, 5};
-
-    // 使用 std::unique 删除相邻的重复元素
-    auto endIt = std::unique(nums.begin(), nums.end());
-
-    // 输出去重后的容器内容
-    for (auto it = nums.begin(); it != endIt; ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
-    for(auto i : nums) {
-        std::cout << i << std::endl;
-    }
+    int* a = new int(3);
+    a[0] = 1;
+    a[1] = 1;
+    a[2] = 1;
+    test(a);
+    cout << a[0] << endl;
     return 0;
 }
