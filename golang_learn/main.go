@@ -10,7 +10,5 @@ func test(nums []int) {
 }
 
 func main() {
-	a := []int{6, 5, 4}
-	test(a)
-	fmt.Println(a)
+	fmt.Println(max(1, 2))
 }
