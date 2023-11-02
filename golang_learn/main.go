@@ -10,5 +10,7 @@ func test(nums []int) {
 }
 
 func main() {
-	fmt.Println(max(1, 2))
+	s := "1234"
+	fmt.Printf("%T %T\n", 'A', s[0])
+	fmt.Println(s)
 }

@@ -27,7 +27,27 @@ bool Substr(string &s1, string &s2, int k){
 	return true;
 }
 
+/*
+Time Complexity Analysis:
 
+Why the algorithm is of the complexity of O(N + M)?
+
+Think about While Loop, sometimes j is decremented, which is the most confused part. So does this mean the complexity 
+is O(N^2 + N * M). 
+
+Actually not, if we look at the steps carefully. We can notice that if we execute $i++$ and $j++$ for 
+k times. Then k will decrease for k times at most.
+
+For example: if the substr is "11111111", the next will be [0, 1, 2, 3, 4, 5, 6] which is the worst for this algorithm.
+So if the substr[j] != str[i], then the index of substr will decrease j times, while index of str has increased 
+j times. So the total cost is 2 * k times. 
+
+As the algorithm finishes when the index of str reaches n. So the total cost will be 2 * N at most.
+
+The same logic can be applied to the process of getting next array. 
+
+Therefore, the Time Complexity is O(N + M)
+*/
 void get_next(vector<int> &next, string &s){
 	int i = 0, j = -1;
 	next[0] = -1;
