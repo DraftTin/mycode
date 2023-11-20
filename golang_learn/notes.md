@@ -157,6 +157,7 @@ Then the alogorithm proceeds as following:
 1. Pick an object from the grey set and move it to the black set.
 2. Move each white object it references to the grey set. This ensures that neither this object nor any object it references can be garbage-collected.
 3. Repeat the last two steps until the grey set is empty.
+
 ![tri-color marking](Animation_of_tri-color_garbage_collection.gif)
 
 **Pros:** This algo can proceed with the program concurrently by maintaining those three sets.
