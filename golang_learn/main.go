@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/heap"
 	"fmt"
 	"sort"
 )
@@ -15,5 +16,6 @@ func main() {
 	fmt.Printf("%T %T\n", 'A', s[0])
 	sort.Find()
 	sort.Search()
+	heap.Fix
 	fmt.Println(s)
 }

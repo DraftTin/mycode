@@ -146,7 +146,7 @@ delete ptr;
 **Difficult to operate**, **time-consuming**, and **space-consuming, and has circular reference problem.**
 3. **Mark and Sweep(Go):** using tri-color marking algorithm to track object and their references.
 
-**Tri-color algo**: Initially, the **root set** contains the references of all objects that can be  accessed. And there are three sets: **White, Grey, Black**, and all references in the root set are in the White.
+**Tri-color algo**: Initially the black set starts as empty, the grey set is the set of objects which are directly referenced from roots and the white set includes all other objects. 
 * White set: objects need to be swept.
 * Grey set: Reachable objects but yet to be scanned for references to "white" objects.
 * Black set: Reachable objects that have no references to "white" objects.
