@@ -90,8 +90,8 @@ Channel is a data type in Go which provides synchrounization and communication b
 2. val := <- ch         # receive data
 3. make(chan int)       # create a unbuffered channel
 4. make(chan int, 4)    # create a buffered channel with a capacity of 4
-5. ch<- int             # channel that can only receive data
-6. <-ch int             # channel that can only send data
+5. chan<- int             # channel that can only receive data
+6. <-chan int             # channel that can only send data
 7. len(ch)              # the number of elements that are already there in the channel
 8. cap(ch)              # capacity of the channel
 9. close(ch)            # close a channel
