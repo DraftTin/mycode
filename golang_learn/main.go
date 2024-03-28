@@ -1,25 +1,32 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"strings"
+	"time"
 )
 
 func main() {
-	var b strings.Builder
+	ctx, cancel := context.WithCancel(context.Background())
 
-	b.WriteString("Player list:\n")
-	for i := 1; i < 5; i++ {
-		b.WriteString(fmt.Sprintf("Player %d\n", i))
-	}
+	go performTask(ctx)
 
-	fmt.Print(b.String())
-	fmt.Println(len(b.String()))
+	time.Sleep(2 * time.Second)
+	cancel()
+
+	time.Sleep(1 * time.Second)
 }
 
-// Output:
-// Player list:
-// Player 1
-// Player 2
-// Player 3
-// Player 4
+func performTask(ctx context.Context) {
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Println("Task cancelled")
+			return
+		default:
+			// Perform task operation
+			fmt.Println("Performing task...")
+			time.Sleep(500 * time.Millisecond)
+		}
+	}
+}
