@@ -22,6 +22,7 @@ public:
 // 根据松弛定理可知，<v0, v1, v2..vk>, 是从源节点s到目标结点vk的最短路径，如果松弛的顺序是<v0, v1> <v1, v2>,..,<v_(k-1), vk>，则vk.d == delta(s, vk), delta表示最短距离
 // 该操作和任何其他的松弛操作无关
 // 遍历图中的边V次, 时间复杂度O(VE)
+// bellmann ford algorithm doesn't support negative loop but can detect negative loop
 bool Bellmann_Ford(vector<Node> &V, vector<edge> &E, int k){
 	V[k].d = 0;
 	for(int i = 0; i < V.size() - 1; ++i){

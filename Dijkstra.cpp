@@ -38,6 +38,7 @@ public:
 // }
 
 
+// dijkstra can't use for graph with edges of negative weight and also dont support negative loop
 void Dijkstra(vector<Node>& V, vector<vector<int>>& E, int r){
 	V[r].d = 0;
 	vector<int> visited(V.size(), 0);
